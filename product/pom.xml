@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>unicom-shop</artifactId>
+        <groupId>com.unicom</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>product</artifactId>
+
+    <build>
+        <finalName>shop-product</finalName>
+        <plugins>
+            <!-- 多环境打包插件【必须在spring boot插件前面】 -->
+            <plugin>
+                <groupId>com.juvenxu.portable-config-maven-plugin</groupId>
+                <artifactId>portable-config-maven-plugin</artifactId>
+                <version>1.1.60-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>replace-package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- spring boot 打包插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
